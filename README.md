@@ -1,56 +1,31 @@
 # Windowkind
 
-An interactive mobile app concept that recommends **a room and a time for an activity**, using the changing light and quiet of a person's home.
+## Ελληνικά
 
-## Why I would use it
+Το Windowkind προτείνει σε ποιο δωμάτιο και ποια ώρα ταιριάζει καλύτερα μια δραστηριότητα, με βάση το φως και την ησυχία του σπιτιού. Διάλεξε ανάμεσα σε διάβασμα, συγκέντρωση, βιντεοκλήση ή χαλάρωση, επίλεξε διάρκεια και σύγκρινε Today, Tomorrow και Saturday.
 
-Working and relaxing in a small home means the same room can feel completely different throughout the day. I would use Windowkind to find a comfortable reading corner or a quiet work window without trial and error.
+### Δοκίμασε το mockup
 
-## What makes the concept distinctive
+Άνοιξε το index.html σε σύγχρονο browser ή εκτέλεσε node serve.mjs και επισκέψου το http://127.0.0.1:4173. Διάλεξε δραστηριότητα, διάρκεια και ημέρα. Άνοιξε μια πρόταση για να δεις γιατί ταιριάζει και αποθήκευσέ τη. Στο My moments μπορείς να αφήσεις αξιολόγηση. Στο My rooms πρόσθεσε δωμάτιο ή καταχώρησε το φως και τον θόρυβο.
 
-The core recommendation is a personalized activity–room–time combination, informed by repeated room observations and comfort feedback. It focuses on daily use of a home, rather than property evaluation or sun-path visualization. Existing products overlap with sunlight tracking; this is a differentiated concept, not a claim of worldwide uniqueness.
+Οι ώρες και οι βαθμολογίες είναι ενδεικτικά δεδομένα. Δεν υπάρχει εκπαιδευμένο μοντέλο, ζωντανά δεδομένα ή backend. Οι αλλαγές αποθηκεύονται τοπικά στον browser.
 
-Related products reviewed November 6, 2026:
-- Sun Seeker: https://play.google.com/store/apps/details?id=com.ajnaware.sunseeker
-- Sun Surveyor: https://play.google.com/store/apps/details?id=com.ratana.sunsurveyor
-- Sunnook: https://sunnook.app/
+### Σχέδιο AI για το εξάμηνο
 
-## Run the mockup
+Πρόβλεψη άνεσης φωτισμού και ησυχίας ανά δωμάτιο και χρονική ζώνη με βάση την ώρα, την εποχή και εθελοντικές παρατηρήσεις. Κατάταξη συνδυασμών δωματίου και ώρας για την επιλεγμένη δραστηριότητα, με επεξήγηση και βαθμολογία αβεβαιότητας. Αρχικά συνθετικά δεδομένα, έπειτα δεδομένα με συναίνεση. Αξιολόγηση με χρονολογικό διαχωρισμό, σφάλμα πρόβλεψης, βαθμονόμηση και αξιολογήσεις άνεσης.
 
-Open index.html directly in a modern browser. No installation or build is required. An internet connection loads optional Google Fonts; system fonts are the fallback. For a local server with Node.js: run node serve.mjs, then open http://127.0.0.1:4173.
+## English
 
-## Click-through walkthrough
+Windowkind recommends a room and time for an activity based on the changing light and quiet in your home. Choose reading, focused work, a video call or unwinding, select a duration, then compare Today, Tomorrow and Saturday.
 
-1. On Today, choose Reading, Deep work, Video call or Unwind.
-2. Change the duration. Explore the best fit or the alternative room.
-3. Read the explanation and save the moment.
-4. Open My moments and submit comfort feedback, or remove a moment.
-5. Open My rooms, add a room, and log light and noise conditions.
-6. Return to Today to see the demo ranking respond to the observations.
+### Try the mockup
 
-All times, fit scores and forecast curves are illustrative. There is no trained model, live weather, calendar integration, sensor access, backend, login or notification delivery. Browser localStorage persists rooms, observations and saved moments. No data is transmitted to a server by the app. Google Fonts requests are the only external asset calls.
+Open index.html in a modern browser, or run node serve.mjs and visit http://127.0.0.1:4173. Choose an activity, duration and day. Open a suggestion to see why it fits and save it. Leave a comfort rating in My moments. Add a room or log light and noise in My rooms.
 
-## Semester AI plan
+Times and scores are illustrative. There is no trained model, live data or backend. Changes are saved locally in the browser.
 
-**Prediction:** learn per-room distributions of light comfort and noise for future time slots from time of day, window direction, season, optional weather and timestamped observations. Begin with a simple per-room/time baseline, then evaluate a regression or classification model. Show uncertainty and ask for observations when data is sparse.
+### Semester AI plan
 
-**Recommendation:** rank feasible room/time pairs for the requested activity and duration using predicted conditions, preferences and previous comfort ratings. Explain the relevant factors and permit overrides. Cold start uses manually entered observations and explicit preferences.
+Predict light comfort and quiet by room and time slot from time of day, season and voluntary observations. Rank room and time combinations for each activity, with explanations and uncertainty scores. Start with synthetic data, then collect observations with consent. Evaluate using chronological splits, prediction error, calibration and comfort ratings.
 
-**Data:** collect voluntary timestamped room observations and post-session feedback. Start with synthetic data, then consented real observations. Avoid precise location and audio recordings; provide deletion and export before collecting real user data.
-
-**Evaluation:** split chronologically to avoid future leakage; compare against fixed schedules and most-used-room baselines. Measure prediction MAE or macro-F1 as appropriate, calibration, top-choice comfort ratings and recommendation acceptance. Evaluate across rooms and unseen time windows.
-
-## Verification
-
-JavaScript syntax checked with node --check app.js. Browser click-through verified recommendation detail, saving and feedback. Room creation and a 390 px mobile layout also checked in-browser.
-
-## Files
-
-- index.html: app structure
-- style.css: responsive visual design
-- app.js: simulated ranking, navigation, forms, local persistence
-- serve.mjs: optional development server
-
-## GitHub handoff
-
-The assignment requires a private GitHub repository and a collaborator invitation for tedaueb. Sites hosting is separate and does not satisfy this requirement. Repository creation and invitation require GitHub access; do not mark the assignment submitted until both are verified.
+Related tools include [Sun Seeker](https://play.google.com/store/apps/details?id=com.ajnaware.sunseeker), [Sun Surveyor](https://play.google.com/store/apps/details?id=com.ratana.sunsurveyor) and [Sunnook](https://sunnook.app/). Windowkind focuses on recommending a room and time for everyday home activities.
